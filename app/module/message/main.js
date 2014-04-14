@@ -1,0 +1,34 @@
+'use strict';
+
+
+var message = angular.module('message', ['ngResource']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

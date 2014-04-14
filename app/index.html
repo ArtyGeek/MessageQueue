@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.css"></link>
+		<link type="text/css" rel="stylesheet" href="css/style.css"></link>
+		<script src="bower_components/lodash/dist/lodash.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-resource/angular-resource.js"></script>
+        <!-- This will be managed by requirejs -->
+		<script src="module/message/main.js"></script>
+		<script src="module/message/messagePollingService.js"></script>
+		<script src="module/message/messageReadCtrl.js"></script>
+		<script src="module/message/messageItemDirective.js"></script>
+
+        <!-- Entry point for program -->
+		<script src="module/entry.js"></script>
+	</head>
+	<body>
+		<div class="container" ng-controller="messageReadCtrl">
+		    <div ng-repeat="msg in msgArr">
+		        <div message-item></div>
+
+	        </div>
+	    </div>
+	</body>
+</html>

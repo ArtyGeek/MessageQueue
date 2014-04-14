@@ -1,0 +1,9 @@
+{
+    "name": "Queue-Test",
+    "version": "0.0.1",
+    "dependencies": {
+        "lodash": "latest",
+        "angular": "1.2.x",
+        "angular-resource":"1.2.x"
+    }
+}

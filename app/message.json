@@ -1,0 +1,8 @@
+{
+    "msgArr": [
+        {
+            "user": "Bob",
+            "data": "Test Data from message.json"
+        }
+    ]
+}

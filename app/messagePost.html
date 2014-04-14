@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.css"></link>
+		<link type="text/css" rel="stylesheet" href="css/style.css"></link>
+		<script src="bower_components/lodash/dist/lodash.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-resource/angular-resource.js"></script>
+        <!-- This will be managed by requirejs -->
+		<script src="module/message/main.js"></script>
+		<script src="module/message/messagePostingService.js"></script>
+		<script src="module/message/messagePostCtrl.js"></script>
+
+        <!-- Entry point for program -->
+		<script src="module/entry.js"></script>
+	</head>
+	<body>
+	    <div class="container" ng-controller="messagePostCtrl">
+       	    Post a message to the server
+            <input ng-model="data.msg"></input>
+            <button ng-click="post()">Post Message</button>
+        </div>
+	</body>
+</html>

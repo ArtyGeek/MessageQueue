@@ -31,14 +31,14 @@ $bq->clear();
 barbieQueuePopAndPrint($bq);
 
 
-$bq->slip('shrimp', true);
+$bq->slipExtra('shrimp', true);
 barbieQueuePopAndPrint($bq);
 barbieQueuePopAndPrint($bq);
 
 $bq
-    ->slip('extra shrimp')
-    ->slip('extra shrimp')
-    ->slip('extra shrimp');
+    ->slipExtra('extra shrimp')
+    ->slipExtra('extra shrimp')
+    ->slipExtra('extra shrimp');
 $bq->save();
 
 barbieQueuePopAndPrint($bq);
@@ -48,7 +48,7 @@ barbieQueuePopAndPrint($bq);
 barbieQueuePopAndPrint($bq);
 barbieQueuePopAndPrint($bq);
 
-$bq->slip('extra shrimp', true);
+$bq->slipExtra('extra shrimp', true);
 barbieQueuePopAndPrint($bq);
 
 barbieQueuePopAndPrint($bq);

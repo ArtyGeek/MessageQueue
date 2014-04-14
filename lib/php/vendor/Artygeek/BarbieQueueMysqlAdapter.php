@@ -32,15 +32,21 @@ class BarbieQueueMysqlAdapter
             return false;
         }
 
-        $stmt = $this->_dbh->prepare('INSERT INTO queue (data) VALUES (:data)');
+        $stmt = $this->_dbh->prepare('INSERT INTO queue (user, data, type) VALUES (:user, :data, :type)');
 
         foreach ($arr as $m)
         {
-            $stmt->bindParam(':data', $m);
+            $user = $m['user'];
+            $data = $m['data'];
+            $type = $m['type'];
+            $stmt->bindParam(':user', $user);
+            $stmt->bindParam(':data', $data);
+            $stmt->bindParam(':type', $type);
             $stmt->execute();        
         }
 
         $success = $this->_dbh->commit();
+error_log(var_export($success, true));
         return $success;
     }
 
@@ -59,7 +65,7 @@ class BarbieQueueMysqlAdapter
         $this->_dbh->exec('LOCK TABLES queue');
 
         // This removes the item with the lowest id from the queue
-        $stmt = $this->_dbh->query('SELECT id, data FROM queue ORDER BY id LIMIT 1');
+        $stmt = $this->_dbh->query('SELECT id, user, data, type FROM queue ORDER BY id LIMIT 1');
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
         // Return false if there are no elements on the queue
         if ($row === false) {
@@ -69,7 +75,6 @@ class BarbieQueueMysqlAdapter
 
         // $id is the primary key, $data is the message data
         $id = $row['id'];
-        $data = $row['data'];        
 
         $success = $this->_dbh->beginTransaction();
 
@@ -86,7 +91,7 @@ class BarbieQueueMysqlAdapter
         // Unlock the queue table
         $this->_dbh->exec('UNLOCK TABLES queue');
 
-        return $data;
+        return $row;
     }
 
 

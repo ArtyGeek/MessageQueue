@@ -4,7 +4,8 @@
 angular.module('message').controller('messageReadCtrl', ['$scope', '$timeout', 'messagePollingService', function($scope, $timeout, poll) {
 
     var pollTime = 2000;
-    var url = '/message.json';
+    var url = '/Service.php';
+    // var url = '/message.json';
     $scope.msgArr = [];
 
     poll.start(url, pollTime, function(result, success) {

@@ -5,13 +5,13 @@
 angular.module('message').factory('messagePostingService', ['$http', function($http) {
 
     return {
-        post: function(message, callback) {
+        post: function(msg, callback) {
 
             // The service will handle status codes and error messages
             $http({
                 method: 'POST',
                 url: '/Service.php',
-                data: { msg: message}
+                data: msg
             }).then(function(result) {
                 callback(true);
             });

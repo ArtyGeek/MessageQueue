@@ -3,11 +3,14 @@
 // This controlls posting to the server
 angular.module('message').controller('messagePostCtrl', ['$scope', 'messagePostingService', function($scope, messagePost) {
 
-    $scope.data = { msg: ''};
+    $scope.msg = { data: '', type: 'text', user: 'Larry'};
 
     $scope.post = function()
     {
-        messagePost.post(this.data.msg, function(success) {
+        // Ensure that the data is not changed
+        var postData = _.clone($scope.msg);
+    
+        messagePost.post(postData, function(success) {
         });
     }
 }]);

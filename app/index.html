@@ -10,18 +10,12 @@
         <script src="module/message/main.js"></script>
         <script src="module/message/messagePollingService.js"></script>
         <script src="module/message/messageReadCtrl.js"></script>
-        <script src="module/message/messageItemDirective.js"></script>
+        <script src="module/message/messageListDirective.js"></script>
 
         <!-- Entry point for program -->
         <script src="module/entry.js"></script>
     </head>
     <body>
-        <div class="container panel panel-default" ng-controller="messageReadCtrl">
-            <div class="panel-body">
-                <div ng-repeat="msg in msgArr">
-                    <div class="alert alert-info" message-item></div>
-                </div>
-            </div>
-        </div>
+        <message-list ng-controller="messageReadCtrl"></div>
     </body>
 </html>

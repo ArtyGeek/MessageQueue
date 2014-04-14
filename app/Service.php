@@ -46,7 +46,7 @@ else if ($_SERVER['REQUEST_METHOD'] == 'GET')
         }
         else
         {
-            $out['msgArr'][] = array('user' => 'no-user', 'data' => $base64ImgArr[$rand] . rand(), 'type' => 'base64image');
+            $out['msgArr'][] = array('user' => 'no-user', 'data' => $base64ImgArr[$rand] , 'type' => 'base64image');
         }
         
     }

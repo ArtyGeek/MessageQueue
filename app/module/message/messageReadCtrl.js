@@ -3,7 +3,7 @@
 
 angular.module('message').controller('messageReadCtrl', ['$scope', '$timeout', 'messagePollingService', function($scope, $timeout, poll) {
 
-    var pollTime = 2000;
+    var pollTime = 3000;
     var url = '/Service.php';
     // var url = '/message.json';
     $scope.msgArr = [];
@@ -18,6 +18,7 @@ angular.module('message').controller('messageReadCtrl', ['$scope', '$timeout', '
                 var msgStruct = {
                     user: msg.user,
                     data: msg.data,
+                    type: msg.type,
                     time: now
                 };
                 

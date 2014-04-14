@@ -1,0 +1,9 @@
+<div class="container panel panel-default">
+    <div class="panel-body"  ng-repeat="msg in msgArr">
+        <div ng-switch on="msg.type">
+            {{msg.user}}
+            <span ng-switch-when="text">{{msg.data}}</span>
+            <img ng-switch-when="base64image" ng-src="{{msg.data}}"></img>
+        </div>
+    </div>
+</div>

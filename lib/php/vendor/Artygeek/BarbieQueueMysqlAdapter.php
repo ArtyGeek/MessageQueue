@@ -62,14 +62,14 @@ error_log(var_export($success, true));
     public function pop()
     {
         // Lock the table since we will be popping a row from it
-        $this->_dbh->exec('LOCK TABLES queue');
+        $this->_dbh->exec('LOCK TABLES queue WRITE');
 
         // This removes the item with the lowest id from the queue
         $stmt = $this->_dbh->query('SELECT id, user, data, type FROM queue ORDER BY id LIMIT 1');
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
         // Return false if there are no elements on the queue
         if ($row === false) {
-            $this->_dbh->exec('UNLOCK TABLES queue');
+            $this->_dbh->exec('UNLOCK TABLES');
             return false;
         }
 
@@ -89,7 +89,7 @@ error_log(var_export($success, true));
         $this->_dbh->commit();
 
         // Unlock the queue table
-        $this->_dbh->exec('UNLOCK TABLES queue');
+        $this->_dbh->exec('UNLOCK TABLES');
 
         return $row;
     }
